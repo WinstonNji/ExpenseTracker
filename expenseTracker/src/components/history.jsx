@@ -1,8 +1,4 @@
-import { useState } from "react"
 
-const [amount, setAmount] = useState ('+/-')
-
-const [reason, setReason] = useState('Enter new transaction')
 
 function HistoryManager (){
 
