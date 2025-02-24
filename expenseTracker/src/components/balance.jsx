@@ -1,10 +1,11 @@
 import { useContext } from "react"
-import { TransactionContext } from "./newTransaction"
+import { HistoryContext } from "./history"
 import { useState, useEffect } from "react"
+
 
 function BalanceManager (){
 
-    const {expenseArr, incomeArr}  = useContext (TransactionContext)
+    const {expenseArr, incomeArr}  = useContext (HistoryContext)
 
     const [incomeTotal, setIncomeTotal] = useState('00')
     const [expenseTotal, setExpenseTotal] = useState('00')

@@ -6,8 +6,7 @@ function NewTransactionManager({ children }) {
   const [amount, setAmount] = useState("");
   const [reason, setReason] = useState("");
   const [transactionArray, setTransactionArray] = useState([]);
-  const [expenseArr, setExpenseArr] = useState([]);
-  const [incomeArr, setIncomeArr] = useState([]);
+
 
   function handleAmount(event) {
     setAmount(event.target.value);
@@ -27,7 +26,6 @@ function NewTransactionManager({ children }) {
       Reason: reason,
     };
 
-    respectiveArray(amount);
     setTransactionArray((t) => [newTransaction, ...t]);
 
     // Reset state values, which will automatically clear the input fields
@@ -38,20 +36,13 @@ function NewTransactionManager({ children }) {
   function deleteTransactions(event) {
     event.preventDefault();
     setTransactionArray([]);
-    setExpenseArr([]);
-    setIncomeArr([]);
   }
 
-  function respectiveArray(amount) {
-    if (amount.startsWith("-")) {
-      setExpenseArr((e) => [...e, Number(amount)]);
-    } else if (amount.startsWith("+")) {
-      setIncomeArr((i) => [...i, Number(amount)]);
-    }
-  }
+  console.log(transactionArray, 'TransactionContext')
+
 
   return (
-    <TransactionContext.Provider value={{ amount, reason, transactionArray, expenseArr, incomeArr }}>
+    <TransactionContext.Provider value={{ amount, reason, transactionArray,  setTransactionArray}}>
       {children}
       <div className="flex flex-col items-center justify-center w-3/4 max-w-3/4">
         <h3 className="text-center font-semibold text-xl pb-5">Add new transaction</h3>

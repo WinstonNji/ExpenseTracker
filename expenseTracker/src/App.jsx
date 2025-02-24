@@ -10,8 +10,9 @@ function App() {
       <h1 className="text-4xl font-bold underline decoration-pink-600 text-center">Expense Tracker</h1>
 
         <NewTransactionManager>
-            <BalanceManager/>
-            <HistoryManager/>
+            <HistoryManager>
+              <BalanceManager/>
+            </HistoryManager>
         </NewTransactionManager>
 
     </div>
